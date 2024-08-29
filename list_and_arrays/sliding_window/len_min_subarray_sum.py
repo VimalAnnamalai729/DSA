@@ -5,7 +5,7 @@ def len_of_min_subarray(arr, target):
 
     left = 0
     right = 1
-    sub_array = arr[]
+    sub_array = arr[]n  
 
 
 arr = [2,3,1,2,4,3]
