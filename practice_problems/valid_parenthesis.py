@@ -18,6 +18,7 @@ def valid_parenthesis(s: str) -> bool:
     return result
 
 
+# Optimized Solution
 def is_valid(s: str) -> bool:
     braces = {'}': '{', ')': '(', ']': '['}
     parsed_bracket = []

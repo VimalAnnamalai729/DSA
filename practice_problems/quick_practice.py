@@ -19,15 +19,15 @@ sum_of_digits(132189)
 sum_of_digits(493193)
 
 print('==================\n')
+
 # Counting Duplicates With Counter
 
 from collections import Counter
 
 
-def count_input(data, target):
-    s = Counter(data)
-
-    print(s.total(target))
+def count_input(string):
+    s = Counter(string.lower())
+    return [(k, v) for k, v in s.items() if v > 1]
 
 
 # find the index of numbers which sums to get the target
