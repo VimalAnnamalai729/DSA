@@ -40,3 +40,17 @@ target = 9
 
 print(bin_search(arr, target))
 
+
+
+def bin_search2(arr, target):
+    left, right = 0, len(arr) -1
+
+    while left <= right:
+        mid_pos = (left+right)// 2
+        if arr[mid_pos] == target:
+            return mid_pos
+        elif arr[mid_pos] < target:
+            left = mid_pos + 1
+        else:
+            right = mid_pos - 1
+    return -1
