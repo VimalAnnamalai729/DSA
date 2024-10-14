@@ -10,7 +10,28 @@ logs = [
 import re
 from collections import Counter
 
-results = re.findall(r'\s*(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\s', str(logs))
-counter_results = Counter(results)
 
-print(counter_results.most_common()[0])
+def most_common_ip():
+    var = ["10.0.0.1 - GET 2020-08-24", "10.0.0.1 - GET 2020-08-24", "10.0.0.2 - GET 2020-08-20",
+           "10.0.0.3 - GET 2020-08-24",
+           "10.0.0.3 - GET 2020-08-24", "10.0.0.3 - GET 2020-08-24", "10.0.0.4 - GET 2020-08-24"]
+
+    ip_matches = re.findall(r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\s', str(var))
+
+    # Solution with Counter
+    count_data = Counter(ip_matches)
+    result = count_data.most_common()[0]
+    print(result)
+
+    # Brute Force Solution
+    result_dict = {}
+    for ip in ip_matches:
+        if result_dict.get(ip):
+            result_dict[ip] += 1
+        else:
+            result_dict.setdefault(ip, 1)
+    print(result_dict)
+    print(sorted(result_dict.items(), key=lambda item: item[1], reverse=True)[0])
+
+
+most_common_ip()

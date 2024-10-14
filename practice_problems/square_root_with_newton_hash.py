@@ -17,25 +17,37 @@ repeat until you get the result.
 #     return current_est
 #     # return x*x
 
-def square_root(x):
-    current_est = 0
-    new_est = current_est - (current_est * current_est - x) / (2 * current_est)
+def square_root(n, l):
+    current_est = n
+
+    while True:
+        new_est = current_est - (current_est * current_est - n) / (2 * current_est)
+        if abs(new_est - current_est) < l:
+            break
+        current_est = new_est
     return new_est
 
+    # return new_est
 
-def testpass():
-    inputs = [2, 4, 10]
-    expected_out = [1.414, 2.0, 3.162]  # Expected square roots
-    threshold = 0.001
 
-    for i in range(len(inputs)):
-        result = square_root(inputs[i])
-        print(f"Computed square root of {inputs[i]}: {result}")
-        if abs(square_root(inputs[i]) - expected_out[i]) > threshold:
-            print(f"Test failed for input {inputs[i]}")
-        else:
-            print(f"Test passed for input {inputs[i]}")
+n = 327
+l = 0.00001
+print(square_root(n, l))
+
+
+# def testpass():
+#     inputs = [2, 4, 10]
+#     expected_out = [1.414, 2.0, 3.162]  # Expected square roots
+#     threshold = 0.001
+#
+#     for i in range(len(inputs)):
+#         result = square_root(inputs[i])
+#         print(f"Computed square root of {inputs[i]}: {result}")
+#         if abs(square_root(inputs[i]) - expected_out[i]) > threshold:
+#             print(f"Test failed for input {inputs[i]}")
+#         else:
+#             print(f"Test passed for input {inputs[i]}")
 
 
 # Run the test cases
-testpass()
+# testpass()
